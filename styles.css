@@ -79,12 +79,6 @@ nav ul li a {
     transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
-nav ul li a:hover {
-    background: cyan;
-    color: #000;
-    border-radius: 5px;
-    transform: translateY(-3px);
-}
 
 nav ul li a::after {
     content: '';
@@ -278,7 +272,7 @@ nav ul li a:hover::after {
     padding: 40px;
     background: rgba(20, 20, 20, 0.6); /* Semi-transparent black */
     border-radius: 15px;
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    backdrop-filter: blur(5px); /* Glassmorphism effect */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, backdrop-filter 0.3s ease;
 }
@@ -1061,5 +1055,3 @@ body::after {
 .section-heading span {
     color: #fff; /* For multi-color headings */
 }
-
-
