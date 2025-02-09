@@ -6,99 +6,57 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: #000;
     color: #fff;
-    overflow: auto;
-    margin: 0;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-/* Animated Background - Particles.js */
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-/* Header Section */
+/* ---- Navbar: Floating Glass Effect ---- */
 header {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 12px 40px;
+    border-radius: 50px;
     z-index: 1000;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
 }
 
 header:hover {
-    box-shadow: 0 5px 15px rgba(0, 255, 153, 0.3);
+    box-shadow: 0px 4px 20px rgba(0, 255, 153, 0.4);
 }
 
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: rgba(20, 20, 20, 0.7);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.1);
-}
-
+/* ---- Navigation ---- */
 nav ul {
     display: flex;
     list-style: none;
     gap: 2rem;
+    padding: 0;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #fff;
     font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 15px;
     position: relative;
-    padding: 0.5rem 1rem;
-    transition: background 0.3s, color 0.3s, transform 0.3s;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
+/* ---- Cool Hover Effect: Scale Up ---- */
 nav ul li a:hover {
-    background: cyan;
-    color: #000;
-    border-radius: 5px;
-    transform: translateY(-3px);
-}
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: cyan;
-    bottom: -4px;
-    left: 0;
-    transition: width 0.3s;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
+    color: cyan;
+    transform: scale(1.1);
 }
 
 /* Hero Section */
@@ -109,17 +67,13 @@ nav ul li a:hover::after {
     align-items: center;
     height: 100vh;
     text-align: center;
-    background: url('https://i.imgur.com/your-hero-background.jpg') center/cover no-repeat;
-    position: relative;
+    padding: 20px;
 }
-
-
-
 
 .hero h1 {
     font-size: 3rem;
     text-transform: uppercase;
-    animation: glitch 1s infinite;
+    animation: glitch 1s infinite alternate;
 }
 
 .hero h1 span {
@@ -140,26 +94,46 @@ nav ul li a:hover::after {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* Glitch Animation */
 @keyframes glitch {
     0% {
         text-shadow: 2px 2px red, -2px -2px blue;
     }
-
     50% {
         text-shadow: -2px 2px red, 2px -2px blue;
     }
-
     100% {
         text-shadow: 2px -2px red, -2px 2px blue;
     }
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+
 /* Countdown Section */
 .countdown-container {
-    background: transparent; /* Fully transparent container */
+    background: transparent;
     color: #fff;
     font-family: 'Poppins', sans-serif;
-    padding: 80px 20px;
+    padding: 100px 20px;
     text-align: center;
     overflow: hidden;
     max-width: 1200px;
@@ -167,47 +141,35 @@ nav ul li a:hover::after {
     position: relative;
 }
 
-/* Dotted Overlay Effect */
-.countdown-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.2;
-    z-index: -1;
-    pointer-events: none;
-}
-
 /* Semi-Transparent Inner Container */
 .countdown-inner {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 40px;
-    background: rgba(20, 20, 20, 0.5); /* Semi-transparent black */
-    border-radius: 15px;
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, backdrop-filter 0.3s ease;
+    padding: 50px;
+    background: rgba(20, 20, 20, 0.4);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    border: 2px solid rgba(0, 255, 255, 0.2);
+    transition: all 0.4s ease-in-out;
 }
 
+/* Floating Effect */
 .countdown-inner:hover {
     transform: translateY(-5px);
-    backdrop-filter: blur(15px); /* Increase blur on hover */
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
 }
 
 /* Countdown Heading */
 .countdown-heading {
     font-size: 3em;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 40px;
     color: cyan;
-    animation: glitch 1s infinite;
-    position: relative;
-    z-index: 1;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
 }
 
 /* Countdown Timer */
@@ -215,137 +177,238 @@ nav ul li a:hover::after {
     display: flex;
     justify-content: center;
     gap: 30px;
-    position: relative;
-    z-index: 1;
 }
 
-/* Countdown Segment with Glass Effect */
+/* Countdown Segment */
 .countdown-segment {
-    background: rgba(0, 0, 0, 0.3); /* More transparent */
+    background: rgba(0, 0, 0, 0.3);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     width: 120px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    z-index: 1;
     transition: all 0.3s ease;
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(0, 255, 153, 0.3); /* Subtle border */
+    border: 2px solid rgba(0, 255, 153, 0.4);
 }
 
+/* Neon Glow Animation */
 .countdown-segment:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(0, 255, 153, 0.5);
-    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0, 255, 153, 0.6);
+    backdrop-filter: blur(15px);
 }
 
 /* Countdown Values */
 .countdown-value {
-    font-size: 3em;
+    font-size: 3.5em;
     font-weight: bold;
-    display: block;
     color: #fff;
     margin-bottom: 5px;
-    line-height: 1;
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Pulsating Effect */
+@keyframes pulse {
+    0% { text-shadow: 0 0 5px cyan; }
+    100% { text-shadow: 0 0 15px cyan; }
 }
 
 /* Countdown Labels */
 .countdown-label {
-    font-size: 0.8em;
+    font-size: 0.85em;
     letter-spacing: 1px;
     color: #00FF99;
     font-weight: bold;
+    text-transform: uppercase;
 }
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .countdown-timer {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .countdown-segment {
+        width: 80px;
+        padding: 15px;
+    }
+
+    .countdown-value {
+        font-size: 2.5em;
+    }
+}
+
 
 /* About Section */
 .about-container {
-    background: transparent; /* Fully transparent container */
+    background: transparent; /* Fully transparent */
     color: #fff;
     font-family: 'Poppins', sans-serif;
-    padding: 80px 20px;
+    padding: 100px 20px;
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
-/* Make Inner Content Semi-Transparent */
+/* Glassmorphism Effect */
 .about-inner {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 40px;
-    background: rgba(20, 20, 20, 0.6); /* Semi-transparent black */
-    border-radius: 15px;
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, backdrop-filter 0.3s ease;
+    padding: 50px;
+    background: rgba(20, 20, 20, 0.4); /* Semi-transparent black */
+    border-radius: 20px;
+    backdrop-filter: blur(12px); /* Soft blur effect */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    border: 2px solid rgba(0, 255, 255, 0.2);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Add a Glow Effect */
+.about-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.15), rgba(0, 255, 153, 0.15));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    border-radius: 20px;
+}
+
+/* Hover Effects */
 .about-inner:hover {
-    transform: translateY(-5px);
-    backdrop-filter: blur(15px); /* Increase blur on hover */
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+    backdrop-filter: blur(18px); /* Increase blur for more depth */
 }
 
-/* Make Text Readable on Transparent Background */
+.about-inner:hover::before {
+    opacity: 1;
+}
+
+/* Text Styling for Readability */
 .about-text {
-    font-size: 1.2em;
-    line-height: 1.8;
+    font-size: 1.3em;
+    line-height: 1.9;
     margin-bottom: 30px;
     color: #ddd;
     text-align: justify;
     padding: 0 50px;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+}
+
+/* Animated Underline Effect */
+.about-text::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 2px;
+    margin: 20px auto 0;
+    background: cyan;
+    transition: width 0.4s ease;
+}
+
+.about-text:hover::after {
+    width: 80%;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .about-inner {
+        padding: 30px;
+    }
+    
+    .about-text {
+        font-size: 1.1em;
+        padding: 0 20px;
+    }
 }
 
 
 /* Events Section */
 .events-container {
-    padding: 20px;
+    padding: 50px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Inner Container */
 .events-inner {
     padding: 40px;
-    background: rgba(20, 20, 20, 0.7);
+    background: rgba(20, 20, 20, 0.5); /* Glass effect */
+    backdrop-filter: blur(8px);
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
 }
 
+.events-inner:hover {
+    box-shadow: 0 0 20px cyan;
+}
+
+/* Heading */
 .events-heading {
     text-align: center;
     color: cyan;
-    font-size: 2.5em;
-    margin-bottom: 30px;
+    font-size: 2.8em;
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-weight: 700;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    text-shadow: 0 0 10px cyan;
 }
 
+/* Event Card */
 .event-section {
     display: flex;
-    background-color: #111;
-    border-radius: 10px;
+    background: rgba(20, 20, 20, 0.5); /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 25px;
     gap: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.4s, box-shadow 0.4s;
+    border: 2px solid cyan;
+    overflow: hidden;
+    position: relative;
 }
 
-.event-section:last-child {
-    margin-bottom: 0;
+/* ✅ FIX: Removed Extra Outer Glow Layer */
+.event-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(0, 255, 153, 0.2));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    border-radius: 15px; /* Ensures it stays within the border */
 }
 
+/* Hover Effect */
 .event-section:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px cyan;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
 }
 
+.event-section:hover::before {
+    opacity: 1;
+}
+
+/* Event Image */
 .event-image {
     flex: 0 0 30%;
-    border-radius: 5px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -354,24 +417,30 @@ nav ul li a:hover::after {
     width: 100%;
     height: auto;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
+    border-radius: 10px;
 }
 
 .event-image img:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
+/* Event Content */
 .event-content {
     flex: 1;
+    text-align: left;
 }
 
+/* Title */
 .event-title {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+    margin-bottom: 15px;
     font-family: 'Poppins', sans-serif;
     color: #fff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
 }
 
+/* Description */
 .event-description {
     margin-bottom: 15px;
     font-family: 'Poppins', sans-serif;
@@ -379,20 +448,31 @@ nav ul li a:hover::after {
     line-height: 1.6;
 }
 
+/* Call to Action Link */
 .event-link {
+    display: inline-block;
     color: #00FF99;
     text-decoration: none;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
-    transition: color 0.3s;
+    font-size: 1.1em;
+    padding: 8px 15px;
+    border: 2px solid #00FF99;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
 .event-link:hover {
-    text-decoration: underline;
-    color: #fff;
+    background: #00FF99;
+    color: #000;
+    text-decoration: none;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.8);
 }
 
-/* Updated Styles for Non-Technical Section */
+/* Style for Non-Technical Events */
 .event-section.non-technical {
     flex-direction: row-reverse;
 }
@@ -400,6 +480,7 @@ nav ul li a:hover::after {
 .event-section.non-technical .event-content {
     text-align: left;
 }
+
 
 /* Contact Section */
 .contact-container {
