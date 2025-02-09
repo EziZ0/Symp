@@ -53,10 +53,27 @@ nav ul li a {
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
+<<<<<<< HEAD
 /* ---- Cool Hover Effect: Scale Up ---- */
 nav ul li a:hover {
     color: cyan;
     transform: scale(1.1);
+=======
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: cyan;
+    bottom: -4px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+>>>>>>> fdcc24edfea1857bcf9aa8bbb8af27279d33b8be
 }
 
 /* Hero Section */
@@ -259,6 +276,7 @@ nav ul li a:hover {
 .about-inner {
     max-width: 1000px;
     margin: 0 auto;
+<<<<<<< HEAD
     padding: 50px;
     background: rgba(20, 20, 20, 0.4); /* Semi-transparent black */
     border-radius: 20px;
@@ -268,6 +286,14 @@ nav ul li a:hover {
     transition: all 0.4s ease-in-out;
     position: relative;
     overflow: hidden;
+=======
+    padding: 40px;
+    background: rgba(20, 20, 20, 0.6); /* Semi-transparent black */
+    border-radius: 15px;
+    backdrop-filter: blur(5px); /* Glassmorphism effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, backdrop-filter 0.3s ease;
+>>>>>>> fdcc24edfea1857bcf9aa8bbb8af27279d33b8be
 }
 
 /* Add a Glow Effect */
@@ -1142,5 +1168,3 @@ body::after {
 .section-heading span {
     color: #fff; /* For multi-color headings */
 }
-
-
