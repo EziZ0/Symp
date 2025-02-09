@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - Case Analytix</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        #event-details-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="event-details-container">
+        <div id="event-details-particles"></div>
+        <div class="event-details-card">
+            <div class="event-details-image">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1739087011/user_uploads/p5jX85XvH81t6U4/image.jpg"
+                    alt="Case Analytix">
+                <div class="event-details-border"></div>
+            </div>
+            <div class="event-details-content">
+                <h2 class="event-details-title">Business Mastery</h2>
+                <br>
+                <br>
+                <h3 class="event-details-subtitle">Event Description</h3>
+                <p class="event-details-description">
+                    Welcome to Pixel Perfects, an immersive case study competition rooted in real-world scenarios. Apply your
+                    knowledge to solve problems faced by tech companies and propose well-thought-out solutions.
+                </p>
+                <div class="event-details-info">
+                    <p>Fee: <span class="event-details-value">Free Entry</span></p>
+                    
+                    <p>Category: <span class="event-details-value"> Individual And Team Event</span></p>
+                </div>
+                
+                <h3 class="event-details-subtitle">Contact</h3>
+                
+                <div class="event-details-contact">
+                    <p>KAVIN S: <span class="event-details-value">  8148741126</span></p>
+                </div>
+                <div class="event-details-info">
+                    <p>Date: <span class="event-details-value">2025-03-17</span></p>
+                    <p>Time: <span class="event-details-value">09:30 AM</span></p>
+                </div>
+                <!-- <p>Team registrations: <span class="event-details-value">463</span></p> -->
+                 <br>
+                <a href="supregister.html" class="event-details-register-button">Register Now</a>
+                
+                <p class="event-details-disclaimer">No on-spot registration available. Kindly register ASAP.</p>
+            </div>
+        </div>
+
+        <!-- Rules and Regulations Section -->
+        <div class="event-rules-container">
+            <h2 class="event-rules-heading">RULES AND REGULATIONS</h2>
+            <ul class="event-rules-list">
+                <li>Participants should bring their laptops.</li>
+                <li>Team capacity: 2 members.</li>
+                <li>45 minutes for discussion and offline PPT preparation.</li>
+                <li>Presentation duration: 12 minutes followed by Q&A.</li>
+                <li>Engaging in malicious activities will lead to immediate disqualification.</li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        particlesJS("event-details-particles", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: "#00FF99" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00FF99",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    out_mode: "out"
+                }
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            },
+            retina_detect: true
+        });
+    });
+</script>
+
+    
+
+</body>
+
+</html>
