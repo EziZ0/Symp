@@ -991,17 +991,26 @@ body::before {
 
 .event-card-tags {
     font-size: 1em;
-    color: #bbb;
+    color: cyan;
     margin-bottom: 10px;
     font-family: 'Poppins', sans-serif;
+    text-shadow: 0 0 5px cyan;
+    animation: neonGlow 1.5s infinite alternate;
 }
 
 .event-card-description {
     font-size: 1.2em;
-    color: #ddd;
+    color: ghostwhite;
     line-height: 1.6;
     font-family: 'Poppins', sans-serif;
     transition: opacity 0.3s ease;
+    text-shadow: 0 0 5px cyan;
+    animation: neonGlow 1.5s infinite alternate;
+}
+
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 5px cyan; }
+    100% { text-shadow: 0 0 20px cyan; }
 }
 
 .event-card:hover .event-card-description {

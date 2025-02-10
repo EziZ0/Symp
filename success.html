@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - Dextro'25</title>
+    <link rel="stylesheet" href="success.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+</head>
+<body>
+
+    <!-- Fullscreen Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Success Container -->
+    <div class="success-container">
+        <div class="glow-box">
+            <h1>🎉 Success! 🎉</h1>
+            <p>Your registration has been successfully submitted.</p>
+            <a href="index.html" class="btn">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Particles.js Configuration -->
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: ["#00FFFF", "#FF00FF", "#FFFF00", "#FF4500"] },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                move: { enable: true, speed: 2, direction: "none", straight: false }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+            }
+        });
+
+        // 🎊 Full-Screen Confetti Effect
+        function fireConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 120,
+                startVelocity: 50,
+                origin: { x: Math.random(), y: Math.random() },
+                colors: ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#FFA500", "#32CD32"]
+            });
+
+            setTimeout(fireConfetti, 500); // Loop every 500ms for continuous effect
+        }
+
+        // Start the confetti effect
+        fireConfetti();
+
+        // ⏳ Redirect to index.html after 5 seconds
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 5000);
+    </script>
+
+</body>
+</html>
