@@ -35,6 +35,111 @@ header:hover {
     box-shadow: 0px 4px 20px rgba(0, 255, 153, 0.4);
 }
 
+/* From Uiverse.io by vinodjangid07 */ 
+.button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+    cursor: pointer;
+    transition: 0.3s;
+    overflow: hidden;
+    position: relative;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.svgIcon {
+    width: 12px;
+    transform: rotate(270deg); /* Always face left */
+    transition: 0.3s;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.button:hover {
+    width: 100px;  /* Expand width for text */
+    border-radius: 50px;
+    transition: 0.3s;
+    background-color: #00FF99;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide arrow when hovering */
+.button:hover .svgIcon {
+    opacity: 0;
+    transform: translateX(-10px); /* Moves it left before disappearing */
+    transition: 0.3s;
+}
+
+.button::before {
+    position: absolute;
+    content: "Back"; /* Set text */
+    color: white;
+    font-size: 0px;
+    transition: 0.3s;
+}
+
+.button:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+/* car */
+
+ /* Carousel container */
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            height: 500px;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        /* Carousel images */
+        .carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Show the active image */
+        .carousel img.active {
+            opacity: 1;
+        }
+
+        /* Navigation buttons */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+
 /* ---- Navigation ---- */
 nav ul {
     display: flex;
@@ -214,7 +319,7 @@ nav ul li a:hover::after {
     max-width: 1000px;
     margin: 0 auto;
     padding: 50px;
-    background: rgba(20, 20, 20, 0.4);
+    background: transparent;
     border-radius: 20px;
     backdrop-filter: blur(12px);
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
@@ -327,7 +432,7 @@ nav ul li a:hover::after {
     max-width: 1000px;
     margin: 0 auto;
     padding: 50px;
-    background: rgba(30, 30, 30, 0.6); /* Subtle glass effect */
+    background: transparent; /* Subtle glass effect */
     border-radius: 15px;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
@@ -388,7 +493,7 @@ nav ul li a:hover::after {
 /* Inner Container */
 .events-inner {
     padding: 40px;
-    background: rgba(20, 20, 20, 0.5); /* Glass effect */
+    background: transparent; /* Glass effect */
     backdrop-filter: blur(8px);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
