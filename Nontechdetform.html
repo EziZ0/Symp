@@ -35,7 +35,7 @@
 
   <!-- Event Registration Form -->
   <section class="event-cards-container">
-    <h2 class="event-cards-heading">Suprise Event Registration</h2>
+    <h2 class="event-cards-heading">Surprise Event Registration</h2>
 
     <section id="events" class="events-container">
       <div class="events-inner">
@@ -54,7 +54,12 @@
             <input type="text" id="college" name="college" required>
 
             <label for="year">Year:</label>
-            <input type="text" id="year" name="year" required>
+            <select id="year" name="year" required>
+              <option value="" disabled selected>Select Year</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+            </select>
 
             <label for="participantsCount">Number of Participants:</label>
             <input type="number" id="participantsCount" name="participantsCount" required>
