@@ -13,6 +13,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+
 <body>
     <!-- Animated Background -->
     <div id="particles-js"></div>
@@ -142,6 +143,26 @@
         </div>
     </section>
 
+    <!-- Carousel Section -->
+    <section id="events" class="events-container">
+        <div class="events-inner">
+            <h2 class="events-heading">Our Gallery</h2>
+            <br>
+            <div class="carousel">
+                <img src="https://images.pexels.com/photos/30613082/pexels-photo-30613082/free-photo-of-prickly-pear-cactus-in-california-desert-landscape.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="active">
+                <img src="https://images.pexels.com/photos/30600481/pexels-photo-30600481/free-photo-of-serene-chinese-pavilion-in-botanical-garden.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+                <img src="https://images.pexels.com/photos/30634755/pexels-photo-30634755/free-photo-of-serene-morning-seascape-in-istanbul.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+        
+                <!-- Navigation buttons -->
+                <button class="carousel-btn prev" onclick="prevSlide()">❮</button>
+                <button class="carousel-btn next" onclick="nextSlide()">❯</button>
+            </div>
+
+        </div>
+    </section>
+    <!-- Carousel Section -->
+    
+
          <!-- Contact Section -->
 <section id="contact" class="contact-container">
     <div class="contact-inner">
@@ -213,6 +234,30 @@
         /* @dom-id  the id of the canvas element
         /* @params  the js object containing the parameters
         */
+
+        // car
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".carousel img");
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("active", i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-play every 3 seconds
+        setInterval(nextSlide, 3000);
         particlesJS('particles-js', {
             particles: {
                 number: {
