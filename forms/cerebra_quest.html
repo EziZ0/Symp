@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event Registration</title>
-  <link rel="stylesheet" href="regi.css">
+  <link rel="stylesheet" href="../styles/regi.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -86,7 +86,6 @@
 
   <!-- Particle Background -->
   <div id="particles-js"></div>
-
   <nav>
     <ul>
         <button class="button" onclick="goBack()" >
@@ -102,7 +101,7 @@
 
   <!-- Event Registration Form -->
   <section class="event-cards-container">
-    <h2 class="event-cards-heading">Business Mastery Registration</h2>
+    <h2 class="event-cards-heading">Cerebra Quest Registration</h2>
 
     <section id="events" class="events-container">
       <div class="events-inner">
@@ -142,8 +141,9 @@
   <script src="script.js"></script>
   
   <script>
+
     function goBack() {
-        window.history.back(); // Takes the user to the previous page
+      window.history.back();
     }
     document.getElementById("registrationForm").addEventListener("submit", function (event) {
       event.preventDefault();
@@ -157,7 +157,7 @@
         participantsCount: parseInt(document.getElementById("participantsCount").value)
       };
 
-      fetch("https://courageous-simplicity-production.up.railway.app/business", {
+      fetch("https://courageous-simplicity-production.up.railway.app/quiz", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
