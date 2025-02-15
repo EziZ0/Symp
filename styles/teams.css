@@ -1,0 +1,169 @@
+/* Team Page Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow: auto;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+/* Background Particles */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Back Link */
+.back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.back-link a {
+    color: cyan;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.back-link a:hover {
+    background: rgba(0, 255, 153, 0.3);
+    transform: scale(1.1);
+}
+
+/* Team Section */
+.team-container {
+    padding: 100px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-heading {
+    color: cyan;
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.team-subheading {
+    color: #bbb;
+    font-size: 1.5em;
+    margin-bottom: 60px;
+}
+
+/* Team Grid */
+.team-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Team Member Card */
+.team-member-card {
+    background: linear-gradient(135deg, #111, #222);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 15px rgba(0, 255, 153, 0.2);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    max-width: 400px;
+    margin: 0 auto;
+    transform: skewY(-3deg);
+    border: 2px solid rgba(0, 255, 153, 0.2);
+}
+
+.team-member-card:hover {
+    transform: translateY(-12px) skewY(0deg);
+    box-shadow: 0 15px 30px rgba(0, 255, 153, 0.4);
+}
+
+/* Team Leader Highlight */
+.team-lead {
+    grid-column: 1 / -1;
+    max-width: 450px;
+    margin: 0 auto 60px;
+}
+
+/* Team Member Image */
+.team-member-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 10px rgba(0, 255, 153, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 4px solid #00FF99;
+}
+
+.team-member-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 255, 153, 0.6);
+}
+
+.team-member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Team Member Info */
+.team-member-name {
+    font-size: 1.6em;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.team-member-role {
+    font-size: 1.1em;
+    color: #bbb;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Connect Button */
+.connect-button {
+    display: inline-block;
+    color: #00FF99;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #00FF99;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.connect-button:hover {
+    background-color: rgba(0, 255, 153, 0.2);
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+/* Alternating Border Colors */
+.team-member-card:nth-child(even) .team-member-image {
+    border: 4px solid #00FFFF;
+}
+
+.team-member-card:nth-child(odd) .team-member-image {
+    border: 4px solid #00FF99;
+}

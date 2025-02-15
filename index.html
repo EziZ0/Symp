@@ -27,6 +27,7 @@
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#events" class="nav-link">Events</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="teams.html" class="nav-link">Team</a></li>
                 </ul>
             </nav>
         </div>
@@ -35,11 +36,87 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1><span>The</span> Symposium <span>Begins Now</span></h1>
+            <h1 id="dynamic-text">
+                <span id="word1">RMD</span> <span id="word2">Engineering</span> <span id="word3">College</span>
+            </h1>
+            <p class="tagline" id="tagline">(An Autonomous Institution)</p>
             <h1><span>Dextero'25</span></h1>
-            <p class="tagline">Explore the future of technology at Dextero'25!</p>
+            <p class="tagline">Computer Science and Business Systems !</p>
         </div>
     </section>
+    
+    <style>
+        /* Gradient effect */
+        .gradient-text {
+            background: linear-gradient(90deg, cyan, white);
+            -webkit-background-clip: text;
+        }
+    
+        /* Make "Symposium" stand out */
+        #word2 {
+            background: linear-gradient(90deg, cyan, white);
+            -webkit-background-clip: text;
+            font-weight: bold;
+        }
+    
+        /* Smooth text fade-in effect */
+        .fade-in {
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+    
+    <script>
+        function smoothTransform(wordId, fromText, toText, delay, transformTagline = false) {
+            let index = 0;
+            let maxLength = Math.max(fromText.length, toText.length);
+            let element = document.getElementById(wordId);
+            let newChars = toText.split("");
+            let oldChars = fromText.split("");
+    
+            function update() {
+                if (index < maxLength) {
+                    oldChars[index] = newChars[index] || ""; // Replace letters one by one
+                    element.innerHTML = oldChars.join(""); // Update text smoothly
+                    index++;
+                    setTimeout(update, 80); // Adjust speed of transformation
+                } else if (transformTagline) {
+                    transformTaglineText(); // Start tagline transformation
+                }
+            }
+    
+            setTimeout(update, delay);
+        }
+    
+        function transformTaglineText() {
+            let tagline = document.getElementById("tagline");
+            let oldText = "An Autonomous Institution";
+            let newText = "Get Ready Folks!";
+            let index = 0;
+            let maxLength = Math.max(oldText.length, newText.length);
+            let oldChars = oldText.split("");
+            let newChars = newText.split("");
+    
+            function updateTagline() {
+                if (index < maxLength) {
+                    oldChars[index] = newChars[index] || ""; // Gradually replace letters
+                    tagline.innerHTML = oldChars.join(""); // Update tagline text smoothly
+                    index++;
+                    setTimeout(updateTagline, 80);
+                }
+            }
+    
+            updateTagline(); // Start tagline transformation
+        }
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                smoothTransform("word1", "RMD", "The", 0);
+                smoothTransform("word2", "Engineering", "Symposium", 500);
+                smoothTransform("word3", "College", "Begins Now", 1000, true); // Tagline transforms after this
+            }, 2000);
+        });
+</script>
 
     <!-- Countdown Section -->
     <section class="countdown-container">
@@ -162,8 +239,8 @@
             <!-- President -->
             <div class="contact-info">
                 <h3>President</h3>
-                <p>GOKUL KANNA ML</p>
-                <p><a href="tel:+919940290789">+91 9940290789</a></p>
+                <p>Nithish Kumar K N</p>
+                <p><a href="tel:+919150276535">+91 9150276535</a></p>
             </div>
 
             <!-- Vice President -->
@@ -182,7 +259,8 @@
 
             <!-- Registration and Help Desk -->
             <div class="contact-info">
-                <h3>Registration & Help Desk</h3>
+                <h3>Student Coordinators</h3>
+                <p>Gokul Kanna M L<br> <a href="tel:+919940290789">+91 9940290789</a></p>
                 <p>Tamil Kumaran S<br> <a href="tel:+916374264988">+91 6374264988</a></p>
             </div>
 
