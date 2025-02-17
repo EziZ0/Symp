@@ -93,15 +93,17 @@ body {
 
 #events button {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 14px 28px;
     background: linear-gradient(45deg, cyan, #00FF99);
     color: #000;
     text-decoration: none;
     font-weight: bold;
     border-radius: 10px;
-    transition: all 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     text-transform: uppercase;
-    box-shadow: 0 0 10px cyan;
+    box-shadow: 0 0 12px cyan;
+    position: relative;
+    overflow: hidden;
 }
 
 #events button:hover {
