@@ -129,7 +129,8 @@
             </select>
 
             <label for="participantsCount">Number of Participants:</label>
-            <select id="year" name="year" required>
+            <select id="participantsCount" name="participantsCount" required>
+
               <option value="" disabled selected>Select Number of Participants</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -180,7 +181,7 @@ function goBack() {
     })
     .then(data => {
         // ✅ Redirect to success page after registration
-        window.location.href = "../success.html";
+        window.location.href = "success.html";
     })
     .catch(error => {
         alert("Error submitting form. Please try again.");
