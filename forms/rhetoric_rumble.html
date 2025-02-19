@@ -115,7 +115,21 @@
             <input type="email" id="email" name="email" required>
 
             <label for="phoneNumber">Phone:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required maxlength="10">
+                        <span id="phoneError" style="color: red;"></span>
+
+                        <script>
+                            document.getElementById("phoneNumber").addEventListener("input", function () {
+                                this.value = this.value.replace(/\D/g, ""); // Allow only numbers
+
+                                let errorMessage = document.getElementById("phoneError");
+                                if (this.value.length !== 10) {
+                                    errorMessage.textContent = "Phone number must be exactly 10 digits.";
+                                } else {
+                                    errorMessage.textContent = "";
+                                }
+                            });
+                        </script>
 
             <label for="college">College:</label>
             <input type="text" id="college" name="college" required>
