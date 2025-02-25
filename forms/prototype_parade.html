@@ -72,6 +72,26 @@
             transition: 0.3s;
         }
 
+        .spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
         .button::before {
             position: absolute;
             content: "Back";
@@ -199,7 +219,13 @@
                             <option value="T.J.S. ENGINEERING COLLEGE">T.J.S. ENGINEERING COLLEGE</option>
                         </select>
 
-            
+                        <label for="year">Year:</label>
+                        <select id="year" name="year" required>
+                            <option value="" disabled selected>Select Year</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                        </select>
 
                         <label for="year">Year:</label>
                         <select id="year" name="year" required>
@@ -219,7 +245,11 @@
                             <option value="4">4</option>
 
                         </select>
-                        <button type="submit">Register</button>
+                        <button type="submit" id="registerBtn">
+                            <span id="btnText">Register</span>
+                            <span id="loadingSpinner" class="spinner" style="display: none;"></span>
+                          </button>
+                          
                     </form>
                 </div>
             </div>
@@ -267,38 +297,50 @@
             window.history.back();
         }
         document.getElementById("registrationForm").addEventListener("submit", function (event) {
-            event.preventDefault();
+    event.preventDefault();
 
-            const formData = {
-                participantName: document.getElementById("participantName").value,
-                email: document.getElementById("email").value,
-                phoneNumber: document.getElementById("phoneNumber").value,
-                college: document.getElementById("college").value,
-                year: document.getElementById("year").value,
-                participantsCount: parseInt(document.getElementById("participantsCount").value)
-            };
+    const registerBtn = document.getElementById("registerBtn");
+    const btnText = document.getElementById("btnText");
+    const loadingSpinner = document.getElementById("loadingSpinner");
 
-            fetch("https://courageous-simplicity-production.up.railway.app/project", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            })
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    throw new Error("Registration failed");
-                })
-                .then(data => {
-                    // ✅ Redirect to success page after registration
-                    window.location.href = "success.html";
-                })
-                .catch(error => {
-                    alert("Error submitting form. Please try again.");
-                });
-        });
+    // Show loading, disable button
+    registerBtn.disabled = true;
+    btnText.style.display = "none";
+    loadingSpinner.style.display = "inline-block";
+
+    const formData = {
+        participantName: document.getElementById("participantName").value,
+        email: document.getElementById("email").value,
+        phoneNumber: document.getElementById("phoneNumber").value,
+        college: document.getElementById("college").value,
+        year: document.getElementById("year").value,
+        participantsCount: parseInt(document.getElementById("participantsCount").value)
+    };
+
+    fetch("https://courageous-simplicity-production.up.railway.app/project", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error("Registration failed");
+    })
+    .then(data => {
+        window.location.href = "success.html"; // Redirect on success
+    })
+    .catch(error => {
+        alert("Error submitting form. Please try again.");
+        registerBtn.disabled = false;  // Re-enable button
+        btnText.style.display = "inline";
+        loadingSpinner.style.display = "none";
+    });
+});
+
 
     </script>
 
