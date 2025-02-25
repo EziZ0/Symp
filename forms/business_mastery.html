@@ -13,12 +13,14 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     /* Add styles for the particle container */
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 50vh;
-      z-index: -1;
-    }
+    #event-details-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
 
     /* From Uiverse.io by vinodjangid07 */ 
 .button {
@@ -217,6 +219,17 @@ button:disabled {
               
             </select>
 
+            <label for="participantsCount">Number of Participants:</label>
+            <select id="participantsCount" name="participantsCount" required>
+
+              <option value="" disabled selected>Select Number of Participants</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              
+            </select>
+
             <button type="submit" id="registerBtn">
               <span id="btnText">Register</span>
               <span id="loadingSpinner" class="spinner" style="display: none;"></span>
@@ -231,6 +244,72 @@ button:disabled {
   <script src="script.js"></script>
   
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        particlesJS("event-details-particles", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: "#00FFFF" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00FFFF",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    out_mode: "out"
+                }
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            },
+            retina_detect: true
+        });
+    });
+
+document.addEventListener("DOMContentLoaded", function () {
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 100, density: { enable: true, value_area: 800 } },
+            color: { value: "#00FFFF" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: true },
+            size: { value: 3, random: true },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#00FFFF",
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: "none",
+                random: false,
+                out_mode: "out"
+            }
+        },
+        interactivity: {
+            events: {
+                onhover: { enable: true, mode: "grab" },
+                onclick: { enable: true, mode: "push" }
+            }
+        },
+        retina_detect: true
+    });
+});
+    
     function goBack() {
         window.history.back(); // Takes the user to the previous page
     }
