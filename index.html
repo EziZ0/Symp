@@ -41,11 +41,17 @@
             </h1>
             <p class="tagline" id="tagline">(An Autonomous Institution)</p>
             <h1><span>Dextero'25</span></h1>
-            <p class="tagline">The **Ultimate Tech Fest** brought to you by Computer Science & Business Systems!</p>
+            <p class="tagline">Department of Computer Science & Business Systems!</p>
         </div>
     </section>
     
     <style>
+        .center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; Full viewport height */
+}
         /* Gradient effect */
         .gradient-text {
             background: linear-gradient(90deg, cyan, white);
@@ -79,7 +85,7 @@
                     oldChars[index] = newChars[index] || ""; // Replace letters one by one
                     element.innerHTML = oldChars.join(""); // Update text smoothly
                     index++;
-                    setTimeout(update, 80); // Adjust speed of transformation
+                    setTimeout(update, 50); // Adjust speed of transformation
                 } else if (transformTagline) {
                     transformTaglineText(); // Start tagline transformation
                 }
@@ -114,7 +120,7 @@
                 smoothTransform("word1", "RMD", "The", 0);
                 smoothTransform("word2", "Engineering", "Symposium", 500);
                 smoothTransform("word3", "College", "Begins Now", 1000, true); // Tagline transforms after this
-            }, 2000);
+            }, 10000);
         });
 </script>
 
@@ -227,6 +233,10 @@
         </div>
     </section>
     <!-- Carousel Section -->
+    <div class="center-button">
+        <a href="./src/bus.html" class="event-link">Bus Route →</a>
+    </div>
+    
     
 
          <!-- Contact Section -->
@@ -252,7 +262,7 @@
 
             <!-- Event Coordinators -->
             <div class="contact-info">
-                <h3>Event Coordinators</h3>
+                <h3>Faculty Coordinators</h3>
                 <p>Ms. SriLakshmi Ch<br> <a href="tel:+919677139461">+91 9677139461</a></p>
                 <p>Ms. Monica Lakshmi R<br> <a href="tel:+917708208016">+91 7708208016</a></p>
             </div>
@@ -323,7 +333,7 @@
         }
 
         // Auto-play every 3 seconds
-        setInterval(nextSlide, 3000);
+        setInterval(nextSlide, 6000);
         particlesJS('particles-js', {
             particles: {
                 number: {
