@@ -217,10 +217,6 @@ button:disabled {
               <option value="4">4</option>
               
             </select>
-
-             
-              
-            </select>
             <button type="submit" id="registerBtn">
               <span id="btnText">Register</span>
               <span id="loadingSpinner" class="spinner" style="display: none;"></span>
@@ -323,7 +319,7 @@ function goBack() {
         phoneNumber: document.getElementById("phoneNumber").value,
         college: document.getElementById("college").value,
         year: document.getElementById("year").value,
-        participantsCount: parseInt(document.getElementById("participantsCount").value)
+        participantsCount: parseInt(1)
       };
 
       fetch("https://courageous-simplicity-production.up.railway.app/coding", {
