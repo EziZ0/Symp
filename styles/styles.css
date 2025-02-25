@@ -637,15 +637,16 @@ nav ul li a:hover::after {
     background: transparent; /* Keeps background clean */
     color: #fff;
     font-family: 'Poppins', sans-serif;
-    padding: 60px 20px;
-    max-width: 1200px;
+    padding: 60px 20px; /* Increased padding for better spacing */
+    max-width: 1400px; /* Slightly larger max-width for wider containers */
     margin: auto;
     text-align: center;
+    box-sizing: border-box; /* Ensures proper sizing */
 }
 
 /* Inner Contact Box */
 .contact-inner {
-    padding: 40px;
+    padding: 50px; /* Increased padding for a more spacious look */
     background: rgba(20, 20, 20, 0.6); /* Enhanced Glassmorphism */
     border-radius: 15px;
     backdrop-filter: blur(12px);
@@ -660,8 +661,8 @@ nav ul li a:hover::after {
 
 /* Heading */
 .section-heading {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 3em; /* Increased font size for heading */
+    margin-bottom: 15px; /* Added more spacing below heading */
     color: #00FF99;
     text-transform: uppercase;
     font-weight: bold;
@@ -669,23 +670,22 @@ nav ul li a:hover::after {
 
 /* Subheading */
 .contact-subheading {
-    font-size: 1.2em;
+    font-size: 1.5em; /* Increased font size for subheading */
     color: #ddd;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 /* Contact Grid */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Larger minimum column width */
+    gap: 30px; /* Increased gap between items */
     justify-content: center;
-    align-items: start;
 }
 
 /* Contact Info Box */
 .contact-info {
-    padding: 20px;
+    padding: 30px; /* Increased padding for a more spacious look */
     background: rgba(0, 0, 0, 0.4); /* Improved Glass Effect */
     border-radius: 12px;
     backdrop-filter: blur(10px);
@@ -695,22 +695,19 @@ nav ul li a:hover::after {
 
 .contact-info:hover {
     box-shadow: 0 0 18px rgba(0, 255, 153, 0.6);
-    backdrop-filter: blur(15px);
 }
 
 /* Titles */
 .contact-info h3 {
-    font-size: 1.4em;
-    margin-bottom: 12px;
+    font-size: 1.6em; /* Increased size of titles inside contact info boxes */
+    margin-bottom: 15px;
     color: cyan;
-    font-weight: 600;
 }
 
 /* Paragraphs */
 .contact-info p {
-    font-size: 1.05em;
-    margin-bottom: 8px;
-    color: #ccc;
+    font-size: 1.2em; /* Increased paragraph size for better readability */
+    margin-bottom: 10px;
 }
 
 /* Contact Links */
@@ -718,23 +715,18 @@ nav ul li a:hover::after {
     color: #00FF99;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
     text-decoration: underline;
-    color: #fff;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr; /* Single column for smaller screens */
-    }
-    .section-heading {
-        font-size: 2em;
+    .contact-container {
+        max-inline-size: 90%;
     }
 }
+
 
 
 
