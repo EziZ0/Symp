@@ -36,7 +36,7 @@ function goBack() {
     window.history.back();
 }
 
-document.getElementById("registrationForm").addEventListener("submit", function (event) {
+document.getElementById("registrationForm").addEventListener("submit", async function (event) {
     event.preventDefault();
 
     const registerBtn = document.getElementById("registerBtn");
@@ -58,8 +58,7 @@ document.getElementById("registrationForm").addEventListener("submit", function 
         participantsCount: parseInt(1)
     };
 
-    addToFirebase(formData.event_name,formData);
-
+    (await addToFirebase)(formData.event_name, formData);
 });
 
 
