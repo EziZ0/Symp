@@ -1,4 +1,5 @@
 import addToFirebase from "../base.js";
+
 document.addEventListener("DOMContentLoaded", function () {
     particlesJS("particles-js", {
         particles: {
@@ -59,28 +60,5 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
     };
 
     (await addToFirebase)(formData.event_name, formData);
+    console.log(formData);
 });
-
-
-// fetch("https://courageous-simplicity-production.up.railway.app/project", {
-//     method: "POST",
-//     headers: {
-//         "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(formData)
-// })
-// .then(response => {
-//     if (response.ok) {
-//         return response.json();
-//     }
-//     throw new Error("Registration failed");
-// })
-// .then(data => {
-//     window.location.href = "success.html"; // Redirect on success
-// })
-// .catch(error => {
-//     alert("Error submitting form. Please try again.");
-//     registerBtn.disabled = false;  // Re-enable button
-//     btnText.style.display = "inline";
-//     loadingSpinner.style.display = "none";
-// });
