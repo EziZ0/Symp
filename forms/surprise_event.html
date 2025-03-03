@@ -11,113 +11,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    /* Add styles for the particle container */
-    #event-details-particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    /* From Uiverse.io by vinodjangid07 */
-    .button {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: rgb(20, 20, 20);
-      border: none;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
-      cursor: pointer;
-      transition: 0.3s;
-      overflow: hidden;
-      position: relative;
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-
-    .svgIcon {
-      width: 12px;
-      transform: rotate(270deg);
-      /* Always face left */
-      transition: 0.3s;
-    }
-
-    .svgIcon path {
-      fill: white;
-    }
-
-    .button:hover {
-      width: 100px;
-      /* Expand width for text */
-      border-radius: 50px;
-      transition: 0.3s;
-      background-color: #00FF99;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Hide arrow when hovering */
-    .button:hover .svgIcon {
-      opacity: 0;
-      transform: translateX(-10px);
-      /* Moves it left before disappearing */
-      transition: 0.3s;
-    }
-
-    .spinner {
-      width: 15px;
-      height: 15px;
-      border: 2px solid white;
-      border-top: 2px solid transparent;
-      border-radius: 50%;
-      display: inline-block;
-      animation: spin 0.6s linear infinite;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    button:disabled {
-      background-color: gray;
-      cursor: not-allowed;
-    }
-
-    .button::before {
-      position: absolute;
-      content: "Back";
-      /* Set text */
-      color: white;
-      font-size: 0px;
-      transition: 0.3s;
-    }
-
-    .button:hover::before {
-      font-size: 13px;
-      opacity: 1;
-      transition: 0.3s;
-    }
-  </style>
+  <script type="module" src="../sripts/script.js"></script>
+  <link rel="stylesheet" href="../styles/forms.css" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="../scripts/particles_cfg.js"></script>
 </head>
 
 <body>
-
-  <!-- Particle Background -->
   <div id="particles-js"></div>
-
   <nav>
     <ul>
       <button class="button" onclick="goBack()">
@@ -126,12 +27,10 @@
             d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z">
           </path>
         </svg>
-
       </button>
     </ul>
   </nav>
 
-  <!-- Event Registration Form -->
   <section class="event-cards-container">
     <h2 class="event-cards-heading">Surprise Event Registration</h2>
 
@@ -239,61 +138,6 @@
       </div>
     </section>
   </section>
-
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-  <script>
-
-    function goBack() {
-      window.history.back(); // Takes the user to the previous page
-    }
-    document.getElementById("registrationForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const registerBtn = document.getElementById("registerBtn");
-      const btnText = document.getElementById("btnText");
-      const loadingSpinner = document.getElementById("loadingSpinner");
-
-      // Show loading, disable button
-      registerBtn.disabled = true;
-      btnText.style.display = "none";
-      loadingSpinner.style.display = "inline-block";
-
-      const formData = {
-        participantName: document.getElementById("participantName").value,
-        email: document.getElementById("email").value,
-        phoneNumber: document.getElementById("phoneNumber").value,
-        college: document.getElementById("college").value,
-        year: document.getElementById("year").value,
-        participantsCount: parseInt(document.getElementById("participantsCount").value)
-      };
-      
-      fetch("https://courageous-simplicity-production.up.railway.app/surprise", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error("Registration failed");
-        })
-        .then(data => {
-          // ✅ Redirect to success page after registration
-          window.location.href = "success.html";
-        })
-        .catch(error => {
-          alert("Error submitting form. Please try again.");
-          registerBtn.disabled = false;  // Re-enable button
-          btnText.style.display = "inline";
-          loadingSpinner.style.display = "none";
-        });
-    });
-  </script>
-
 </body>
 
 </html>

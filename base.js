@@ -3,7 +3,6 @@ async function getFirebaseConfig() {
   return await response.json();
 }
 
-// Immediately load and initialize Firebase
 const addToFirebase = (async () => {
   const firebaseConfig = await getFirebaseConfig();
 
