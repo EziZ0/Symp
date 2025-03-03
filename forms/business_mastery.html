@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="../sripts/script.js"></script>
   <style>
     /* Add styles for the particle container */
     #event-details-particles {
@@ -135,7 +136,7 @@ button:disabled {
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
+            <input type="hidden" id="event_name" value="business_mastery">
             <label for="phoneNumber">Phone:</label>
             <input type="tel" id="phoneNumber" name="phoneNumber" required maxlength="10">
             <span id="phoneError" style="color: red;"></span>
@@ -322,30 +323,31 @@ document.addEventListener("DOMContentLoaded", function () {
         year: document.getElementById("year").value,
         participantsCount: parseInt(document.getElementById("participantsCount").value)
       };
+      
 
-      fetch("https://courageous-simplicity-production.up.railway.app/business", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        throw new Error("Registration failed");
-    })
-    .then(data => {
-        // ✅ Redirect to success page after registration
-        window.location.href = "success.html";
-    })
-    .catch(error => {
-        alert("Error submitting form. Please try again.");
-        registerBtn.disabled = false;  // Re-enable button
-        btnText.style.display = "inline";
-        loadingSpinner.style.display = "none";
-    });
+    //   fetch("https://courageous-simplicity-production.up.railway.app/business", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(formData)
+    //   })
+    //   .then(response => {
+    //     if (response.ok) {
+    //         return response.json();
+    //     }
+    //     throw new Error("Registration failed");
+    // })
+    // .then(data => {
+    //     // ✅ Redirect to success page after registration
+    //     window.location.href = "success.html";
+    // })
+    // .catch(error => {
+    //     alert("Error submitting form. Please try again.");
+    //     registerBtn.disabled = false;  // Re-enable button
+    //     btnText.style.display = "inline";
+    //     loadingSpinner.style.display = "none";
+    // });
 });
   </script>
 

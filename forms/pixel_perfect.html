@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="../sripts/script.js"></script>
   <style>
     /* Add styles for the particle container */
     #event-details-particles {
@@ -136,7 +137,7 @@ button:disabled {
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
+            <input type="hidden" id="event_name" value="pixel_perfect">
             <label for="phoneNumber">Phone:</label>
             <input type="tel" id="phoneNumber" name="phoneNumber" required maxlength="10">
             <span id="phoneError" style="color: red;"></span>
@@ -230,7 +231,7 @@ button:disabled {
   </section>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="script.js"></script>
+  <script src="../script.js"></script>
   
   <script>
 

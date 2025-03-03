@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>Our Team - Dextero'25</title>
+    <link rel="stylesheet" href="../styles/teams.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Custom styles for the team page can go here */
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div id="particles-js"></div>
+
+    <!-- Back to Main Website Link -->
+    <div class="back-link">
+        <a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Dextero'25</a>
+    </div>
+
+    <!-- Team Section -->
+    <section class="team-container">
+        <h2 class="team-heading">Development Team</h2><br><br><br>
+
+        
+
+        <!-- Development Team Members -->
+        <div class="team-members-grid">
+            <div class="team-member-card">
+                <div class="team-member-image">
+                    <img src="../res/kavin.jpg"
+                        alt="Kavin S">
+                </div>
+                <h3 class="team-member-name">Kavin S</h3>
+                <p class="team-member-role">Frontend Developer</p>
+                <a href="https://www.linkedin.com/in/kavins26/" class="connect-button"><i class="fas fa-link"></i> Connect</a>
+            </div>
+
+            <div class="team-member-card">
+                <div class="team-member-image">
+                    <img src="../res/elzin.jpg"
+                        alt="Elzin ">
+                </div>
+                <h3 class="team-member-name">Elzin Selva M</h3>
+                <p class="team-member-role">Backend Developer</p>
+                <a href="https://www.linkedin.com/in/elzinm/" class="connect-button"><i class="fas fa-link"></i> Connect</a>
+            </div>
+
+            <div class="team-member-card">
+                <div class="team-member-image">
+                    <img src="../res/thanush.jpg"
+                        alt="Thanush S">
+                </div>
+                <h3 class="team-member-name">Thanush S</h3>
+                <p class="team-member-role">Frontend Developer</p>
+                <a href="https://www.linkedin.com/in/thanush-s-917191266" class="connect-button"><i class="fas fa-link"></i> Connect</a>
+            </div>
+
+            <div class="team-member-card">
+                <div class="team-member-image">
+                    <img src="../res/divakar_photo.jpeg"
+                        alt="Divakar P">
+                </div>
+                <h3 class="team-member-name">Divakar P</h3>
+                <p class="team-member-role">Backend Developer</p>
+                <a href="https://www.linkedin.com/in/divakar-p-96584025b/" class="connect-button"><i class="fas fa-link"></i> Connect</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        /* particlesJS('dom-id', params);
+    /* @dom-id  the id of the canvas element
+    /* @params  the js object containing the parameters
+    */
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '00FFFF' // Changed to the website's cyan
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '00FFFF'
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    },
+                    image: {
+                        src: 'img/github.svg',
+                        width: 100,
+                        height: 100
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 5,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00FFFF', // Changed to the website's cyan
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true,
+            config_demo: {
+                hide_card: false,
+                background_color: '#b61924',
+                background_image: '',
+                background_position: '50% 50%',
+                background_repeat: 'no-repeat',
+                background_size: 'cover'
+            }
+        });
+    </script>
+</body>
+
+</html>
