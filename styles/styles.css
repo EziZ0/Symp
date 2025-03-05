@@ -668,6 +668,23 @@ nav ul li a:hover::after {
     text-transform: uppercase;
     font-weight: bold;
 }
+.event-details-rounds h4 {
+    font-size: 1.8em;
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 10px;
+}
+
+.event-details-rounds p {
+    font-size: 1.2em;
+    color: #ddd;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.event-details-rounds p strong {
+    color: #00FF99;
+}
 
 /* Subheading */
 .contact-subheading {
