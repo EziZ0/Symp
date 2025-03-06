@@ -56,6 +56,15 @@ body {
     width: 100%;
 }
 
+.bus-container {
+    position: relative;
+    padding-top: 60px; /* Adjust based on your search bar height */
+}
+
+.bus-routes-grid {
+    position: relative;
+}
+
 /* ============ HEADING ============ */
 .bus-heading {
     color: cyan;

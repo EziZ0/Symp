@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +7,28 @@
     <link rel="stylesheet" href="../styles/bus.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="../scripts/particles_cfg.js"></script>
+    <style>
+        .search-bar {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            background: black;
+            padding: 10px;
+        }
+    </style>    
 </head>
-
 <body>
     <div id="particles-js"></div>
     <div class="back-link">
         <a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Main</a>
     </div>
-
     <div class="bus-container">
         <h1 class="bus-heading">Bus Routes</h1>
-
-        <!-- Search Bar -->
         <div class="search-bar">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" id="searchInput" placeholder="Search for bus routes..." onkeyup="searchBusRoutes()">
-            <button onclick="clearSearch()" id="clearButton" style="display: none;"><i
-                    class="fas fa-times"></i></button>
+            <input type="text" id="searchInput" placeholder="Search for bus routes...">
+            <button onclick="clearSearch()" id="clearButton" style="display: none;"><i class="fas fa-times"></i></button>
         </div>
-
         <!-- Bus Routes List -->
         <div class="bus-routes-grid" id="busRoutes">
             <!-- Example of how to fill bus route details -->
@@ -262,72 +264,83 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const busRoutes = document.getElementById('busRoutes');
-            let originalContent = busRoutes.innerHTML; // Store the initial HTML content
+    document.addEventListener('DOMContentLoaded', function () {
+        const busRoutes = document.getElementById('busRoutes');
+        const searchInput = document.getElementById('searchInput');
+        const clearButton = document.getElementById('clearButton');
+        const cards = Array.from(busRoutes.getElementsByClassName('bus-route-card'));
+        let noResultsMessage = null;
 
-            // Function to search bus routes
-            window.searchBusRoutes = function () {
-                const input = document.getElementById('searchInput').value.toUpperCase();
-                const cards = busRoutes.getElementsByClassName('bus-route-card');
-                const clearButton = document.getElementById('clearButton');
-                let firstResult = null; // To store the first result for scrolling
-                let resultsFound = false; // Flag to check if any results are found
+        // Function to remove no results message if it exists
+        function removeNoResults() {
+            if (noResultsMessage) {
+                noResultsMessage.remove();
+                noResultsMessage = null;
+            }
+        }
 
-                // Restore original content if input is empty
-                if (input.length === 0) {
-                    resetBusRoutes();
-                    return;
-                }
+        window.searchBusRoutes = function () {
+            const input = searchInput.value.toUpperCase().trim();
+            let firstResult = null;
+            let resultsFound = false;
 
-                for (let i = 0; i < cards.length; i++) {
-                    const routeName = cards[i].querySelector('.bus-route-name').innerText.toUpperCase();
-                    const routeDetails = cards[i].querySelector('.bus-route-details').innerText.toUpperCase();
+            removeNoResults();
 
-                    if (routeName.includes(input) || routeDetails.includes(input)) {
-                        cards[i].style.display = ""; // Show the card
-                        if (firstResult === null) {
-                            firstResult = cards[i]; // Store the first result
-                        }
-                        resultsFound = true;
-                    } else {
-                        cards[i].style.display = "none"; // Hide the card
+            if (input.length === 0) {
+                cards.forEach(card => card.style.display = '');
+                clearButton.style.display = 'none';
+                return;
+            }
+
+            cards.forEach(card => {
+                const routeName = card.querySelector('.bus-route-name').innerText.toUpperCase();
+                const routeDetails = card.querySelector('.bus-route-details').innerText.toUpperCase();
+                
+                if (routeName.includes(input) || routeDetails.includes(input)) {
+                    card.style.display = '';
+                    if (!firstResult) {
+                        firstResult = card;
                     }
+                    resultsFound = true;
+                } else {
+                    card.style.display = 'none';
                 }
+            });
 
-                // Show/hide clear button based on search input
-                clearButton.style.display = input.length > 0 ? "inline-block" : "none";
+            clearButton.style.display = 'inline-block';
 
-                // Message if no results are found
-                if (!resultsFound && input.length > 0) {
-                    busRoutes.innerHTML = "<p class='no-results'>No bus routes found matching your search.</p>";
-                }
+            if (!resultsFound) {
+                noResultsMessage = document.createElement('p');
+                noResultsMessage.className = 'no-results';
+                noResultsMessage.textContent = 'No bus routes found matching your search.';
+                noResultsMessage.style.color = '#FFFFFF';
+                noResultsMessage.style.padding = '20px';
+                busRoutes.appendChild(noResultsMessage);
+            }
 
-                // Scroll to the first result if found
-                if (firstResult) {
+            if (firstResult) {
+                setTimeout(() => {
                     firstResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                }, 100);
             }
+        }
 
-            // Function to clear search input and reset bus routes
-            window.clearSearch = function () {
-                document.getElementById('searchInput').value = '';
-                document.getElementById('clearButton').style.display = 'none';
-                resetBusRoutes();
-            }
+        window.clearSearch = function () {
+            searchInput.value = '';
+            clearButton.style.display = 'none';
+            removeNoResults();
+            cards.forEach(card => card.style.display = '');
+        }
 
-            // Function to reset bus routes to original content
-            function resetBusRoutes() {
-                busRoutes.innerHTML = originalContent;  // Restore the original content
-            }
-
-            resetBusRoutes();
+        // Debounce search
+        let timeout;
+        searchInput.addEventListener('keyup', function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(searchBusRoutes, 300);
         });
+    });
     </script>
 </body>
-
 </html>
