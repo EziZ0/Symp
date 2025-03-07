@@ -23,7 +23,7 @@ document.getElementById("registrationForm").addEventListener("submit", async fun
     phoneNumber: document.getElementById("phoneNumber").value,
     college: document.getElementById("college").value,
     year: document.getElementById("year").value,
-    participantsCount: parseInt(document.getElementById("participantsCount")),
+    participantsCount: parseInt(document.getElementById("participantsCount").value),
   };
 
   (await addToFirebase)(formData.event_name, formData);
