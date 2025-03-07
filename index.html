@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
     </head>
     <script type="module" src="base.js" ></script>
 
@@ -47,7 +47,7 @@
             <p class="tagline">Department of Computer Science & Business Systems!</p>
         </div>
     </section>
-    
+
     <style>
         .center-button {
     display: flex;
@@ -61,7 +61,7 @@
             -webkit-background-clip: text;
             background-clip: text;
         }
-    
+
         /* Make "Symposium" stand out */
         #word2 {
             background: linear-gradient(90deg, cyan, white);
@@ -69,14 +69,14 @@
             background-clip: text;
             font-weight: bold;
         }
-    
+
         /* Smooth text fade-in effect */
         .fade-in {
             opacity: 1;
             transition: opacity 1s ease-in-out;
         }
     </style>
-    
+
     <script>
         function smoothTransform(wordId, fromText, toText, delay, transformTagline = false) {
             let index = 0;
@@ -84,7 +84,7 @@
             let element = document.getElementById(wordId);
             let newChars = toText.split("");
             let oldChars = fromText.split("");
-    
+
             function update() {
                 if (index < maxLength) {
                     oldChars[index] = newChars[index] || ""; // Replace letters one by one
@@ -95,10 +95,10 @@
                     transformTaglineText(); // Start tagline transformation
                 }
             }
-    
+
             setTimeout(update, delay);
         }
-    
+
         function transformTaglineText() {
             let tagline = document.getElementById("tagline");
             let oldText = "An Autonomous Institution";
@@ -107,7 +107,7 @@
             let maxLength = Math.max(oldText.length, newText.length);
             let oldChars = oldText.split("");
             let newChars = newText.split("");
-    
+
             function updateTagline() {
                 if (index < maxLength) {
                     oldChars[index] = newChars[index] || ""; // Gradually replace letters
@@ -116,10 +116,10 @@
                     setTimeout(updateTagline, 80);
                 }
             }
-    
+
             updateTagline(); // Start tagline transformation
         }
-    
+
         document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 smoothTransform("word1", "RMD", "The", 0);
@@ -154,7 +154,7 @@
         </div>
     </section>
 
-    
+
     <!-- Events Section -->
     <section id="events" class="events-container">
         <div class="events-inner">
@@ -237,9 +237,9 @@
 
         </div>
     </section>
-    
-    
-    
+
+
+
 
          <!-- Contact Section -->
 <section id="contact" class="contact-container">
@@ -299,7 +299,7 @@
         <a href="mailto:dextero25@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
         <a href="https://www.instagram.com/dextero_25/" class="social-icon"><i class="fab fa-instagram"></i></a>
     </div>
-    
+
 
     <!-- Back to Top Button -->
     <button onclick="topFunction()" id="backToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
@@ -321,7 +321,7 @@
         */
 
         // car
-        
+
         let currentSlide = 0;
         const slides = document.querySelectorAll(".carousel img");
 
@@ -461,7 +461,7 @@
         });
     </script>
     <script>
-        
+
 
         // Back to Top Button
         let backToTopButton = document.getElementById("backToTopBtn");
