@@ -15,11 +15,7 @@ const { getFirestore, collection, addDoc } = await import(
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app, {
-  databaseId: "(default)",
-  host: "firestore.googleapis.com",
-  ssl: true
-});
+const db = getFirestore(app);
 
 const addToFirebase = (() => {
   // Function to add data
